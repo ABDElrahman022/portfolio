@@ -102,8 +102,9 @@ const Hero: React.FC = () => {
             </motion.a>
 
             <motion.a
-              href="/AbdElrahman_Muhammed_CV.pdf"
-              download
+              href="https://drive.google.com/file/d/1J44Y9_Ov_lYxHd__ah3fdk2GD_LMfsJj/view?usp=drive_link"
+              target="_blank"
+              rel="noopener noreferrer"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="border-2 border-purple-400 text-purple-400 px-8 py-4 rounded-full font-semibold flex items-center space-x-2 hover:bg-purple-400 hover:text-white transition-all duration-300"
