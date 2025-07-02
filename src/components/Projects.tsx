@@ -1,5 +1,4 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import { ExternalLink, Github, Brain, Heart, Car, BarChart3, Gamepad2, Building } from 'lucide-react';
 
 const Projects: React.FC = () => {
@@ -75,146 +74,108 @@ const Projects: React.FC = () => {
     }
   ];
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.05,
-        delayChildren: 0.05,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: { duration: 0.4, ease: "easeOut" },
-    },
-  };
-
   return (
     <section id="projects" className="py-12 px-4 sm:px-6 lg:px-8 bg-slate-800/30">
       <div className="container mx-auto max-w-7xl">
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.05, margin: "-200px" }}
-        >
-          <motion.div variants={itemVariants} className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
-              Featured <span className="text-purple-400">Projects</span>
-            </h2>
-            <div className="w-20 h-1 bg-gradient-to-r from-purple-500 to-pink-500 mx-auto rounded-full" />
-            <p className="text-gray-300 text-base mt-4 max-w-2xl mx-auto">
-              Here are some of my key projects showcasing expertise in machine learning, 
-              AI development, and software engineering with real-world applications.
-            </p>
-          </motion.div>
+        <div className="text-center mb-12">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
+            Featured <span className="text-purple-400">Projects</span>
+          </h2>
+          <div className="w-20 h-1 bg-gradient-to-r from-purple-500 to-pink-500 mx-auto rounded-full" />
+          <p className="text-gray-300 text-base mt-4 max-w-2xl mx-auto">
+            Here are some of my key projects showcasing expertise in machine learning, 
+            AI development, and software engineering with real-world applications.
+          </p>
+        </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-            {projects.map((project, index) => (
-              <motion.div
-                key={index}
-                variants={itemVariants}
-                whileHover={{ y: -10, scale: 1.02 }}
-                className="bg-slate-800/50 backdrop-blur-sm rounded-xl overflow-hidden border border-slate-700 hover:border-purple-500/50 transition-all duration-300 group"
-              >
-                <div className="relative overflow-hidden">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent" />
-                  <div className="absolute top-4 left-4">
-                    <div className="bg-gradient-to-r from-purple-500 to-pink-500 p-2 rounded-lg">
-                      <project.icon className="w-5 h-5 text-white" />
-                    </div>
-                  </div>
-                  <div className="absolute top-4 right-4">
-                    <span className="bg-slate-900/80 text-purple-300 px-3 py-1 rounded-full text-sm">
-                      {project.category}
-                    </span>
-                  </div>
-                </div>
-
-                <div className="p-6">
-                  <h3 className="text-lg sm:text-xl font-bold text-white mb-3">{project.title}</h3>
-                  <p className="text-gray-300 mb-4 text-sm sm:text-base line-clamp-3">{project.description}</p>
-
-                  {project.achievements && (
-                    <div className="mb-4">
-                      <h4 className="text-sm font-semibold text-purple-300 mb-2">Key Achievements:</h4>
-                      <ul className="text-sm text-gray-400 space-y-1">
-                        {project.achievements.map((achievement, idx) => (
-                          <li key={idx} className="flex items-start">
-                            <span className="text-purple-400 mr-2">•</span>
-                            {achievement}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  )}
-
-                  <div className="flex flex-wrap gap-2 mb-6">
-                    {project.technologies.map((tech, techIndex) => (
-                      <span
-                        key={techIndex}
-                        className="bg-purple-500/20 text-purple-300 px-2 py-1 rounded text-xs border border-purple-500/30"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-
-                  <div className="flex space-x-4">
-                    <motion.a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      className="flex items-center space-x-2 text-gray-400 hover:text-purple-400 transition-colors duration-200"
-                    >
-                      <Github className="w-5 h-5" />
-                      <span>Code</span>
-                    </motion.a>
-                    <motion.a
-                      href={project.demo}
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      className="flex items-center space-x-2 text-gray-400 hover:text-purple-400 transition-colors duration-200"
-                    >
-                      <ExternalLink className="w-5 h-5" />
-                      <span>Demo</span>
-                    </motion.a>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-
-          <motion.div
-            variants={itemVariants}
-            className="text-center mt-12"
-          >
-            <motion.a
-              href="https://github.com/ABDElrahman022"
-              target="_blank"
-              rel="noopener noreferrer"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center space-x-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white px-6 py-3 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+          {projects.map((project, index) => (
+            <div
+              key={index}
+              className="bg-slate-800/50 backdrop-blur-sm rounded-xl overflow-hidden border border-slate-700 hover:border-purple-500/50 transition-all duration-300 group"
             >
-              <Github className="w-5 h-5" />
-              <span>View More on GitHub</span>
-            </motion.a>
-          </motion.div>
-        </motion.div>
+              <div className="relative overflow-hidden">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent" />
+                <div className="absolute top-4 left-4">
+                  <div className="bg-gradient-to-r from-purple-500 to-pink-500 p-2 rounded-lg">
+                    <project.icon className="w-5 h-5 text-white" />
+                  </div>
+                </div>
+                <div className="absolute top-4 right-4">
+                  <span className="bg-slate-900/80 text-purple-300 px-3 py-1 rounded-full text-sm">
+                    {project.category}
+                  </span>
+                </div>
+              </div>
+
+              <div className="p-6">
+                <h3 className="text-lg sm:text-xl font-bold text-white mb-3">{project.title}</h3>
+                <p className="text-gray-300 mb-4 text-sm sm:text-base line-clamp-3">{project.description}</p>
+
+                {project.achievements && (
+                  <div className="mb-4">
+                    <h4 className="text-sm font-semibold text-purple-300 mb-2">Key Achievements:</h4>
+                    <ul className="text-sm text-gray-400 space-y-1">
+                      {project.achievements.map((achievement, idx) => (
+                        <li key={idx} className="flex items-start">
+                          <span className="text-purple-400 mr-2">•</span>
+                          {achievement}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
+                <div className="flex flex-wrap gap-2 mb-6">
+                  {project.technologies.map((tech, techIndex) => (
+                    <span
+                      key={techIndex}
+                      className="bg-purple-500/20 text-purple-300 px-2 py-1 rounded text-xs border border-purple-500/30"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+
+                <div className="flex space-x-4">
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center space-x-2 text-gray-400 hover:text-purple-400 transition-colors duration-200"
+                  >
+                    <Github className="w-5 h-5" />
+                    <span>Code</span>
+                  </a>
+                  <a
+                    href={project.demo}
+                    className="flex items-center space-x-2 text-gray-400 hover:text-purple-400 transition-colors duration-200"
+                  >
+                    <ExternalLink className="w-5 h-5" />
+                    <span>Demo</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="text-center mt-12">
+          <a
+            href="https://github.com/ABDElrahman022"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center space-x-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white px-6 py-3 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
+          >
+            <Github className="w-5 h-5" />
+            <span>View More on GitHub</span>
+          </a>
+        </div>
       </div>
     </section>
   );
