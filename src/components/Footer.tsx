@@ -8,17 +8,17 @@ const Footer: React.FC = () => {
   const socialLinks = [
     {
       icon: Github,
-      href: 'https://github.com/abdElrahmanMuhammedNasr',
+      href: 'https://github.com/ABDElrahman022',
       label: 'GitHub'
     },
     {
       icon: Linkedin,
-      href: 'https://linkedin.com/in/abdelrahman-muhammed-nasr',
+      href: 'https://www.linkedin.com/in/abdelrahman-muhammed/',
       label: 'LinkedIn'
     },
     {
       icon: Mail,
-      href: 'mailto:abdElrahmanMuhammedNasr@gmail.com',
+      href: 'mailto:a.muhamed@outlook.com',
       label: 'Email'
     }
   ];

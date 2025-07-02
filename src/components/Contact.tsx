@@ -237,7 +237,7 @@ const Contact: React.FC = () => {
                     required
                     rows={6}
                     className="w-full px-4 py-3 bg-slate-800/50 border border-slate-700 rounded-lg text-white placeholder-gray-400 focus:border-purple-500 focus:outline-none transition-colors duration-300 resize-none"
-                    placeholder="Tell me about your ML project or just say hello!"
+                    placeholder="Tell me about your ML project"
                   />
                 </div>
 
