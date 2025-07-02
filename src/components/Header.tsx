@@ -17,7 +17,7 @@ const Header: React.FC = () => {
 
   const navItems = [
     { href: '#home', label: 'Home' },
-    { href: '#About', label: 'About' },
+    { href: '#about', label: 'About' },
     { href: '#experience', label: 'Experience' },
     { href: '#skills', label: 'Skills' },
     { href: '#projects', label: 'Projects' },
@@ -26,11 +26,26 @@ const Header: React.FC = () => {
   ];
 
   const scrollToSection = (href: string) => {
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+    // Close mobile menu first
     setIsMenuOpen(false);
+    
+    // Small delay to allow menu to close
+    setTimeout(() => {
+      const targetId = href.replace('#', '');
+      const element = document.getElementById(targetId);
+      
+      if (element) {
+        // Calculate offset for fixed header
+        const headerHeight = 80; // Approximate header height
+        const elementPosition = element.offsetTop;
+        const offsetPosition = elementPosition - headerHeight;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
+    }, 100);
   };
 
   return (
@@ -46,13 +61,14 @@ const Header: React.FC = () => {
     >
       <nav className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          <motion.div
+          <motion.button
+            onClick={() => scrollToSection('#home')}
             whileHover={{ scale: 1.05 }}
             className="flex items-center space-x-2"
           >
             <Code2 className="w-8 h-8 text-purple-400" />
             <span className="text-xl font-bold text-white">AbdElrahman</span>
-          </motion.div>
+          </motion.button>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
@@ -74,6 +90,7 @@ const Header: React.FC = () => {
             whileTap={{ scale: 0.95 }}
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             className="md:hidden text-white p-2"
+            aria-label="Toggle menu"
           >
             {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </motion.button>
@@ -82,16 +99,20 @@ const Header: React.FC = () => {
         {/* Mobile Navigation */}
         <motion.div
           initial={false}
-          animate={{ height: isMenuOpen ? 'auto' : 0 }}
+          animate={{ 
+            height: isMenuOpen ? 'auto' : 0,
+            opacity: isMenuOpen ? 1 : 0
+          }}
+          transition={{ duration: 0.3 }}
           className="md:hidden overflow-hidden"
         >
-          <div className="py-4 space-y-4">
+          <div className="py-4 space-y-4 bg-slate-900/95 backdrop-blur-md rounded-lg mt-4 px-4">
             {navItems.map((item) => (
               <motion.button
                 key={item.href}
                 onClick={() => scrollToSection(item.href)}
                 whileTap={{ scale: 0.95 }}
-                className="block w-full text-left text-gray-300 hover:text-purple-400 transition-colors duration-200 font-medium py-2"
+                className="block w-full text-left text-gray-300 hover:text-purple-400 transition-colors duration-200 font-medium py-3 px-2 rounded-lg hover:bg-slate-800/50"
               >
                 {item.label}
               </motion.button>
