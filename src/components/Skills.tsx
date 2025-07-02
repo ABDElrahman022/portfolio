@@ -83,37 +83,38 @@ const Skills: React.FC = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2,
+        staggerChildren: 0.1,
+        delayChildren: 0.1,
       },
     },
   };
 
   const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
+    hidden: { y: 30, opacity: 0 },
     visible: {
       y: 0,
       opacity: 1,
-      transition: { duration: 0.5 },
+      transition: { duration: 0.6, ease: "easeOut" },
     },
   };
 
   return (
-    <section id="skills" className="py-20 px-6">
+    <section id="skills" className="min-h-screen py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8">
       <div className="container mx-auto max-w-7xl">
         <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.1, margin: "-100px" }}
         >
           <motion.div variants={itemVariants} className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6">
               Technical <span className="text-purple-400">Skills</span>
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-purple-500 to-pink-500 mx-auto rounded-full" />
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
             {skillCategories.map((category, index) => (
               <motion.div
                 key={index}
@@ -122,7 +123,7 @@ const Skills: React.FC = () => {
                 className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 border border-slate-700 hover:border-purple-500/50 transition-all duration-300"
               >
                 <div className="flex items-center space-x-3 mb-6">
-                  <div className="bg-gradient-to-r from-purple-500 to-pink-500 p-3 rounded-lg">
+                  <div className="bg-gradient-to-r from-purple-500 to-pink-500 p-3 rounded-lg flex-shrink-0">
                     <category.icon className="w-6 h-6 text-white" />
                   </div>
                   <h3 className="text-xl font-bold text-white">{category.title}</h3>
@@ -140,6 +141,7 @@ const Skills: React.FC = () => {
                           initial={{ width: 0 }}
                           whileInView={{ width: `${skill.level}%` }}
                           transition={{ duration: 1, delay: skillIndex * 0.1 }}
+                          viewport={{ once: true }}
                           className="bg-gradient-to-r from-purple-500 to-pink-500 h-2 rounded-full"
                         />
                       </div>

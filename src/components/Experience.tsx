@@ -71,26 +71,26 @@ const Experience: React.FC = () => {
   };
 
   return (
-    <section id="experience" className="py-20 px-6 bg-slate-800/30">
+    <section id="experience" className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 bg-slate-800/30">
       <div className="container mx-auto max-w-6xl">
         <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.2 }}
         >
-          <motion.div variants={itemVariants} className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+          <motion.div variants={itemVariants} className="text-center mb-12 sm:mb-16">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 sm:mb-6">
               Experience & <span className="text-purple-400">Leadership</span>
             </h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-purple-500 to-pink-500 mx-auto rounded-full" />
+            <div className="w-20 sm:w-24 h-1 bg-gradient-to-r from-purple-500 to-pink-500 mx-auto rounded-full" />
           </motion.div>
 
           <div className="relative">
-            {/* Timeline Line */}
-            <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-purple-500 to-pink-500 hidden md:block" />
+            {/* Timeline Line - Hidden on mobile, visible on larger screens */}
+            <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-purple-500 to-pink-500 hidden lg:block" />
 
-            <div className="space-y-12">
+            <div className="space-y-8 sm:space-y-12">
               {experiences.map((exp, index) => (
                 <motion.div
                   key={index}
@@ -98,40 +98,40 @@ const Experience: React.FC = () => {
                   whileHover={{ scale: 1.02 }}
                   className="relative"
                 >
-                  {/* Timeline Dot */}
-                  <div className="absolute left-6 w-4 h-4 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full border-4 border-slate-900 hidden md:block" />
+                  {/* Timeline Dot - Hidden on mobile */}
+                  <div className="absolute left-6 w-4 h-4 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full border-4 border-slate-900 hidden lg:block" />
                   
-                  <div className="md:ml-20 bg-slate-800/50 backdrop-blur-sm rounded-xl p-8 border border-slate-700 hover:border-purple-500/50 transition-all duration-300">
-                    <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-6">
+                  <div className="lg:ml-20 bg-slate-800/50 backdrop-blur-sm rounded-xl p-4 sm:p-6 lg:p-8 border border-slate-700 hover:border-purple-500/50 transition-all duration-300">
+                    <div className="flex flex-col space-y-4 mb-4 sm:mb-6">
                       <div>
-                        <h3 className="text-2xl font-bold text-white mb-2">{exp.title}</h3>
-                        <div className="flex flex-col sm:flex-row sm:items-center sm:space-x-4 text-purple-300 mb-2">
+                        <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">{exp.title}</h3>
+                        <div className="flex flex-col space-y-2 text-purple-300">
                           <div className="flex items-center space-x-2">
-                            <Briefcase className="w-4 h-4" />
-                            <span className="font-semibold">{exp.company}</span>
+                            <Briefcase className="w-4 h-4 flex-shrink-0" />
+                            <span className="font-semibold text-sm sm:text-base">{exp.company}</span>
                           </div>
                           <div className="flex items-center space-x-2">
-                            <MapPin className="w-4 h-4" />
-                            <span>{exp.location}</span>
+                            <MapPin className="w-4 h-4 flex-shrink-0" />
+                            <span className="text-sm sm:text-base">{exp.location}</span>
                           </div>
                         </div>
                       </div>
-                      <div className="flex flex-col items-start lg:items-end space-y-2">
+                      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between space-y-2 sm:space-y-0">
                         <div className="flex items-center space-x-2 text-gray-400">
-                          <Calendar className="w-4 h-4" />
-                          <span className="font-medium">{exp.period}</span>
+                          <Calendar className="w-4 h-4 flex-shrink-0" />
+                          <span className="font-medium text-sm sm:text-base">{exp.period}</span>
                         </div>
-                        <span className="bg-gradient-to-r from-purple-500/20 to-pink-500/20 text-purple-300 px-3 py-1 rounded-full text-sm border border-purple-500/30">
+                        <span className="bg-gradient-to-r from-purple-500/20 to-pink-500/20 text-purple-300 px-3 py-1 rounded-full text-xs sm:text-sm border border-purple-500/30 self-start">
                           {exp.type}
                         </span>
                       </div>
                     </div>
 
-                    <div className="mb-6">
+                    <div className="mb-4 sm:mb-6">
                       <ul className="space-y-2">
                         {exp.description.map((item, idx) => (
-                          <li key={idx} className="text-gray-300 flex items-start space-x-2">
-                            <span className="text-purple-400 mt-2">•</span>
+                          <li key={idx} className="text-gray-300 flex items-start space-x-2 text-sm sm:text-base">
+                            <span className="text-purple-400 mt-1 sm:mt-2 flex-shrink-0">•</span>
                             <span>{item}</span>
                           </li>
                         ))}
@@ -143,7 +143,7 @@ const Experience: React.FC = () => {
                         <motion.span
                           key={idx}
                           whileHover={{ scale: 1.1 }}
-                          className="bg-gradient-to-r from-purple-500/20 to-pink-500/20 text-purple-300 px-3 py-1 rounded-full text-sm border border-purple-500/30"
+                          className="bg-gradient-to-r from-purple-500/20 to-pink-500/20 text-purple-300 px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm border border-purple-500/30"
                         >
                           {tech}
                         </motion.span>
@@ -157,14 +157,14 @@ const Experience: React.FC = () => {
 
           <motion.div
             variants={itemVariants}
-            className="mt-16 text-center"
+            className="mt-12 sm:mt-16 text-center"
           >
-            <div className="bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-xl p-8 border border-purple-500/20">
-              <h3 className="text-2xl font-bold text-white mb-4 flex items-center justify-center">
-                <Award className="w-8 h-8 text-purple-400 mr-3" />
+            <div className="bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-xl p-6 sm:p-8 border border-purple-500/20">
+              <h3 className="text-xl sm:text-2xl font-bold text-white mb-4 flex items-center justify-center flex-wrap">
+                <Award className="w-6 sm:w-8 h-6 sm:h-8 text-purple-400 mr-3" />
                 Leadership & Impact
               </h3>
-              <p className="text-gray-300 text-lg max-w-3xl mx-auto">
+              <p className="text-gray-300 text-base sm:text-lg max-w-3xl mx-auto leading-relaxed">
                 Through my experience in leading AI projects and mentoring fellow students, 
                 I've developed strong leadership skills and a passion for sharing knowledge. 
                 I believe in the power of collaboration and community building in advancing 

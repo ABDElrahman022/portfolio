@@ -7,7 +7,7 @@ const Projects: React.FC = () => {
     {
       title: 'Mindful - Mental Health AI Platform',
       description: 'Led a 7-member team to develop a comprehensive mental health platform with AI-powered psychological assessments. Achieved A+ grade with 97.62% accuracy in panic disorder detection using XGBoost.',
-      image: 'https://images.pexels.com/photos/3825581/pexels-photo-3825581.jpeg?auto=compress&cs=tinysrgb&w=800',
+      image: '/WhatsApp Image 2024-12-27 at 20.09.57_ce6bbf84.jpg',
       technologies: ['Python', 'XGBoost', 'Logistic Regression', 'SVM', 'Mixtral-8x7B', 'RAG', 'Pinecone'],
       category: 'AI/ML - Graduation Project',
       icon: Brain,
@@ -22,7 +22,7 @@ const Projects: React.FC = () => {
     {
       title: 'Breast Cancer Detection CNN',
       description: 'Built a convolutional neural network using MobileNetV2 to classify breast cell images into benign, normal, and malignant categories with high accuracy.',
-      image: 'https://images.pexels.com/photos/3825581/pexels-photo-3825581.jpeg?auto=compress&cs=tinysrgb&w=800',
+      image: 'https://images.pexels.com/photos/4021775/pexels-photo-4021775.jpeg?auto=compress&cs=tinysrgb&w=800',
       technologies: ['TensorFlow', 'MobileNetV2', 'OpenCV', 'Python'],
       category: 'Computer Vision',
       icon: Heart,
@@ -48,7 +48,7 @@ const Projects: React.FC = () => {
       description: 'Created an automatic exploratory data analysis tool that processes various data formats and generates comprehensive insights and visualizations.',
       image: 'https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=800',
       technologies: ['Python', 'Pandas', 'Plotly', 'Streamlit'],
-      category: 'Data Science',
+      category: 'Data Analysis',
       icon: BarChart3,
       github: 'https://github.com/ABDElrahman022/Automated_EDA',
       demo: '#'
@@ -80,31 +80,32 @@ const Projects: React.FC = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2,
+        staggerChildren: 0.1,
+        delayChildren: 0.1,
       },
     },
   };
 
   const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
+    hidden: { y: 30, opacity: 0 },
     visible: {
       y: 0,
       opacity: 1,
-      transition: { duration: 0.5 },
+      transition: { duration: 0.6, ease: "easeOut" },
     },
   };
 
   return (
-    <section id="projects" className="py-20 px-6 bg-slate-800/30">
+    <section id="projects" className="min-h-screen py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-slate-800/30">
       <div className="container mx-auto max-w-7xl">
         <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.1, margin: "-100px" }}
         >
           <motion.div variants={itemVariants} className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6">
               Featured <span className="text-purple-400">Projects</span>
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-purple-500 to-pink-500 mx-auto rounded-full" />
@@ -114,7 +115,7 @@ const Projects: React.FC = () => {
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
             {projects.map((project, index) => (
               <motion.div
                 key={index}
