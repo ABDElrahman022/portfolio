@@ -83,38 +83,38 @@ const Skills: React.FC = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.1,
+        staggerChildren: 0.05,
+        delayChildren: 0.05,
       },
     },
   };
 
   const itemVariants = {
-    hidden: { y: 30, opacity: 0 },
+    hidden: { y: 20, opacity: 0 },
     visible: {
       y: 0,
       opacity: 1,
-      transition: { duration: 0.6, ease: "easeOut" },
+      transition: { duration: 0.4, ease: "easeOut" },
     },
   };
 
   return (
-    <section id="skills" className="min-h-screen py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8">
+    <section id="skills" className="py-12 px-4 sm:px-6 lg:px-8">
       <div className="container mx-auto max-w-7xl">
         <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.1, margin: "-100px" }}
+          viewport={{ once: true, amount: 0.05, margin: "-200px" }}
         >
-          <motion.div variants={itemVariants} className="text-center mb-16">
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6">
+          <motion.div variants={itemVariants} className="text-center mb-12">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
               Technical <span className="text-purple-400">Skills</span>
             </h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-purple-500 to-pink-500 mx-auto rounded-full" />
+            <div className="w-20 h-1 bg-gradient-to-r from-purple-500 to-pink-500 mx-auto rounded-full" />
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
             {skillCategories.map((category, index) => (
               <motion.div
                 key={index}
@@ -126,14 +126,14 @@ const Skills: React.FC = () => {
                   <div className="bg-gradient-to-r from-purple-500 to-pink-500 p-3 rounded-lg flex-shrink-0">
                     <category.icon className="w-6 h-6 text-white" />
                   </div>
-                  <h3 className="text-xl font-bold text-white">{category.title}</h3>
+                  <h3 className="text-lg sm:text-xl font-bold text-white">{category.title}</h3>
                 </div>
 
                 <div className="space-y-4">
                   {category.skills.map((skill, skillIndex) => (
                     <div key={skillIndex}>
                       <div className="flex justify-between items-center mb-2">
-                        <span className="text-gray-300 font-medium">{skill.name}</span>
+                        <span className="text-gray-300 font-medium text-sm sm:text-base">{skill.name}</span>
                         <span className="text-purple-400 text-sm font-semibold">{skill.level}%</span>
                       </div>
                       <div className="w-full bg-slate-700 rounded-full h-2">
@@ -154,11 +154,11 @@ const Skills: React.FC = () => {
 
           <motion.div
             variants={itemVariants}
-            className="mt-16 text-center"
+            className="mt-12 text-center"
           >
-            <div className="bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-xl p-8 border border-purple-500/20">
-              <h3 className="text-2xl font-bold text-white mb-4">Continuous Learning</h3>
-              <p className="text-gray-300 text-lg max-w-3xl mx-auto">
+            <div className="bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-xl p-6 border border-purple-500/20">
+              <h3 className="text-xl font-bold text-white mb-4">Continuous Learning</h3>
+              <p className="text-gray-300 text-base max-w-3xl mx-auto">
                 As a Machine Learning Engineer, I'm committed to staying at the forefront of AI 
                 technology. Currently exploring advanced deep learning architectures, MLOps practices, 
                 and emerging AI frameworks to build more intelligent and scalable solutions.

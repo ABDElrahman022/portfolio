@@ -80,42 +80,42 @@ const Projects: React.FC = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.1,
+        staggerChildren: 0.05,
+        delayChildren: 0.05,
       },
     },
   };
 
   const itemVariants = {
-    hidden: { y: 30, opacity: 0 },
+    hidden: { y: 20, opacity: 0 },
     visible: {
       y: 0,
       opacity: 1,
-      transition: { duration: 0.6, ease: "easeOut" },
+      transition: { duration: 0.4, ease: "easeOut" },
     },
   };
 
   return (
-    <section id="projects" className="min-h-screen py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-slate-800/30">
+    <section id="projects" className="py-12 px-4 sm:px-6 lg:px-8 bg-slate-800/30">
       <div className="container mx-auto max-w-7xl">
         <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.1, margin: "-100px" }}
+          viewport={{ once: true, amount: 0.05, margin: "-200px" }}
         >
-          <motion.div variants={itemVariants} className="text-center mb-16">
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6">
+          <motion.div variants={itemVariants} className="text-center mb-12">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
               Featured <span className="text-purple-400">Projects</span>
             </h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-purple-500 to-pink-500 mx-auto rounded-full" />
-            <p className="text-gray-300 text-lg mt-6 max-w-2xl mx-auto">
+            <div className="w-20 h-1 bg-gradient-to-r from-purple-500 to-pink-500 mx-auto rounded-full" />
+            <p className="text-gray-300 text-base mt-4 max-w-2xl mx-auto">
               Here are some of my key projects showcasing expertise in machine learning, 
               AI development, and software engineering with real-world applications.
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
             {projects.map((project, index) => (
               <motion.div
                 key={index}
@@ -143,8 +143,8 @@ const Projects: React.FC = () => {
                 </div>
 
                 <div className="p-6">
-                  <h3 className="text-xl font-bold text-white mb-3">{project.title}</h3>
-                  <p className="text-gray-300 mb-4 line-clamp-3">{project.description}</p>
+                  <h3 className="text-lg sm:text-xl font-bold text-white mb-3">{project.title}</h3>
+                  <p className="text-gray-300 mb-4 text-sm sm:text-base line-clamp-3">{project.description}</p>
 
                   {project.achievements && (
                     <div className="mb-4">
@@ -164,7 +164,7 @@ const Projects: React.FC = () => {
                     {project.technologies.map((tech, techIndex) => (
                       <span
                         key={techIndex}
-                        className="bg-purple-500/20 text-purple-300 px-2 py-1 rounded text-sm border border-purple-500/30"
+                        className="bg-purple-500/20 text-purple-300 px-2 py-1 rounded text-xs border border-purple-500/30"
                       >
                         {tech}
                       </span>
@@ -208,7 +208,7 @@ const Projects: React.FC = () => {
               rel="noopener noreferrer"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center space-x-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white px-8 py-4 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
+              className="inline-flex items-center space-x-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white px-6 py-3 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
             >
               <Github className="w-5 h-5" />
               <span>View More on GitHub</span>

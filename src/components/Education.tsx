@@ -80,41 +80,41 @@ const Education: React.FC = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.1,
+        staggerChildren: 0.05,
+        delayChildren: 0.05,
       },
     },
   };
 
   const itemVariants = {
-    hidden: { y: 30, opacity: 0 },
+    hidden: { y: 20, opacity: 0 },
     visible: {
       y: 0,
       opacity: 1,
-      transition: { duration: 0.6, ease: "easeOut" },
+      transition: { duration: 0.4, ease: "easeOut" },
     },
   };
 
   return (
-    <section id="education" className="min-h-screen py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8">
+    <section id="education" className="py-12 px-4 sm:px-6 lg:px-8">
       <div className="container mx-auto max-w-6xl">
         <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.1, margin: "-100px" }}
+          viewport={{ once: true, amount: 0.05, margin: "-200px" }}
         >
-          <motion.div variants={itemVariants} className="text-center mb-16">
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6">
+          <motion.div variants={itemVariants} className="text-center mb-12">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
               Education & <span className="text-purple-400">Learning</span>
             </h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-purple-500 to-pink-500 mx-auto rounded-full" />
+            <div className="w-20 h-1 bg-gradient-to-r from-purple-500 to-pink-500 mx-auto rounded-full" />
           </motion.div>
 
           {/* Formal Education */}
-          <motion.div variants={itemVariants} className="mb-16">
-            <h3 className="text-2xl font-bold text-white mb-8 flex items-center">
-              <GraduationCap className="w-8 h-8 text-purple-400 mr-3" />
+          <motion.div variants={itemVariants} className="mb-12">
+            <h3 className="text-xl font-bold text-white mb-6 flex items-center">
+              <GraduationCap className="w-6 h-6 text-purple-400 mr-3" />
               Formal Education
             </h3>
             
@@ -122,26 +122,26 @@ const Education: React.FC = () => {
               <motion.div
                 key={index}
                 whileHover={{ scale: 1.02 }}
-                className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-8 border border-slate-700 hover:border-purple-500/50 transition-all duration-300"
+                className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 border border-slate-700 hover:border-purple-500/50 transition-all duration-300"
               >
-                <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-6">
+                <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-4">
                   <div>
-                    <h4 className="text-2xl font-bold text-white mb-2">{edu.degree}</h4>
+                    <h4 className="text-xl font-bold text-white mb-2">{edu.degree}</h4>
                     <div className="flex flex-col sm:flex-row sm:items-center sm:space-x-4 text-purple-300 mb-2">
                       <div className="flex items-center space-x-2">
                         <BookOpen className="w-4 h-4" />
-                        <span className="font-semibold">{edu.institution}</span>
+                        <span className="font-semibold text-sm">{edu.institution}</span>
                       </div>
                       <div className="flex items-center space-x-2">
                         <MapPin className="w-4 h-4" />
-                        <span>{edu.location}</span>
+                        <span className="text-sm">{edu.location}</span>
                       </div>
                     </div>
                   </div>
                   <div className="flex flex-col items-start lg:items-end space-y-2">
                     <div className="flex items-center space-x-2 text-gray-400">
                       <Calendar className="w-4 h-4" />
-                      <span className="font-medium">{edu.period}</span>
+                      <span className="font-medium text-sm">{edu.period}</span>
                     </div>
                     <span className="bg-gradient-to-r from-purple-500/20 to-pink-500/20 text-purple-300 px-3 py-1 rounded-full text-sm border border-purple-500/30">
                       {edu.status}
@@ -149,14 +149,14 @@ const Education: React.FC = () => {
                   </div>
                 </div>
 
-                <p className="text-gray-300 mb-6">{edu.description}</p>
+                <p className="text-gray-300 mb-4 text-sm">{edu.description}</p>
 
-                <div className="mb-6">
-                  <h5 className="text-lg font-semibold text-white mb-3">Key Achievements:</h5>
+                <div className="mb-4">
+                  <h5 className="text-base font-semibold text-white mb-3">Key Achievements:</h5>
                   <ul className="grid md:grid-cols-2 gap-2">
                     {edu.achievements.map((achievement, idx) => (
-                      <li key={idx} className="text-gray-300 flex items-start space-x-2">
-                        <span className="text-purple-400 mt-2">•</span>
+                      <li key={idx} className="text-gray-300 flex items-start space-x-2 text-sm">
+                        <span className="text-purple-400 mt-1">•</span>
                         <span>{achievement}</span>
                       </li>
                     ))}
@@ -174,9 +174,9 @@ const Education: React.FC = () => {
           </motion.div>
 
           {/* Courses */}
-          <motion.div variants={itemVariants} className="mb-16">
-            <h3 className="text-2xl font-bold text-white mb-8 flex items-center">
-              <BookOpen className="w-8 h-8 text-purple-400 mr-3" />
+          <motion.div variants={itemVariants} className="mb-12">
+            <h3 className="text-xl font-bold text-white mb-6 flex items-center">
+              <BookOpen className="w-6 h-6 text-purple-400 mr-3" />
               Professional Courses
             </h3>
             
@@ -188,8 +188,8 @@ const Education: React.FC = () => {
                   className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 border border-slate-700 hover:border-purple-500/50 transition-all duration-300"
                 >
                   <div className="mb-4">
-                    <h4 className="text-lg font-bold text-white mb-2">{course.title}</h4>
-                    <p className="text-purple-300 font-medium">{course.issuer}</p>
+                    <h4 className="text-base font-bold text-white mb-2">{course.title}</h4>
+                    <p className="text-purple-300 font-medium text-sm">{course.issuer}</p>
                     <p className="text-gray-400 text-sm">{course.date}</p>
                   </div>
                   
@@ -197,7 +197,7 @@ const Education: React.FC = () => {
                     {course.skills.map((skill, skillIndex) => (
                       <span
                         key={skillIndex}
-                        className="bg-purple-500/20 text-purple-300 px-2 py-1 rounded text-sm border border-purple-500/30"
+                        className="bg-purple-500/20 text-purple-300 px-2 py-1 rounded text-xs border border-purple-500/30"
                       >
                         {skill}
                       </span>
@@ -210,8 +210,8 @@ const Education: React.FC = () => {
 
           {/* Certifications */}
           <motion.div variants={itemVariants}>
-            <h3 className="text-2xl font-bold text-white mb-8 flex items-center">
-              <Award className="w-8 h-8 text-purple-400 mr-3" />
+            <h3 className="text-xl font-bold text-white mb-6 flex items-center">
+              <Award className="w-6 h-6 text-purple-400 mr-3" />
               Certifications
             </h3>
             
@@ -223,8 +223,8 @@ const Education: React.FC = () => {
                   className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 border border-slate-700 hover:border-purple-500/50 transition-all duration-300"
                 >
                   <div className="mb-4">
-                    <h4 className="text-lg font-bold text-white mb-2">{cert.title}</h4>
-                    <p className="text-purple-300 font-medium">{cert.issuer}</p>
+                    <h4 className="text-base font-bold text-white mb-2">{cert.title}</h4>
+                    <p className="text-purple-300 font-medium text-sm">{cert.issuer}</p>
                     <p className="text-gray-400 text-sm">{cert.date}</p>
                   </div>
                   
@@ -232,7 +232,7 @@ const Education: React.FC = () => {
                     {cert.skills.map((skill, skillIndex) => (
                       <span
                         key={skillIndex}
-                        className="bg-purple-500/20 text-purple-300 px-2 py-1 rounded text-sm border border-purple-500/30"
+                        className="bg-purple-500/20 text-purple-300 px-2 py-1 rounded text-xs border border-purple-500/30"
                       >
                         {skill}
                       </span>
@@ -245,11 +245,11 @@ const Education: React.FC = () => {
 
           <motion.div
             variants={itemVariants}
-            className="mt-16 text-center"
+            className="mt-12 text-center"
           >
-            <div className="bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-xl p-8 border border-purple-500/20">
-              <h3 className="text-2xl font-bold text-white mb-4">Lifelong Learning Philosophy</h3>
-              <p className="text-gray-300 text-lg max-w-3xl mx-auto">
+            <div className="bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-xl p-6 border border-purple-500/20">
+              <h3 className="text-xl font-bold text-white mb-4">Lifelong Learning Philosophy</h3>
+              <p className="text-gray-300 text-base max-w-3xl mx-auto">
                 As a Machine Learning Engineer, I believe in continuous learning and staying updated 
                 with the latest AI technologies. I actively pursue advanced courses, participate in 
                 AI communities, and contribute to open-source ML projects to expand my expertise.
